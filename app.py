@@ -47,4 +47,5 @@ def country():
     return render_template('countries.html', a=a)
 
 
-app.run()
+if __name__ == '__main__':
+    app.run()
