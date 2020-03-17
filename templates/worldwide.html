@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block head %}
+<title>Coronavirus Counter - Worlwide</title>
+{% endblock %}
+{% block body %}
+<h1 style="padding-top: 70px" class="container align-center">Cases Worlwide</h1>
+<div class="container jumbotron" style="padding-top: 30px">
+  <table class="table table-borderless">
+    <thead>
+      <tr>
+        <th>Cases</th>
+        <th>Recovered</th>
+        <th>Deaths</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{{ cases }}</td>
+        <td>{{ recovered }}</td>
+        <td>{{ deaths }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+{% endblock %}

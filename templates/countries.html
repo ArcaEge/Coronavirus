@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block head %}
+<title>Coronavirus Counter - Countries</title>
+{% endblock %}
+{% block body %}
+<h1 style="padding-top: 70px" class="container align-center">Countries</h1>
+<div class="container jumbotron" style="padding-top: 30px">
+  <input class="form-control" id="myInput" type="text" placeholder="Search">
+  <table class="table table-borderless">
+    <thead>
+      <tr>
+        <th>Country</th>
+        <th>Cases</th>
+        <th>Active Cases</th>
+        <th>Recovered</th>
+        <th>Critical Cases</th>
+        <th>Deaths</th>
+      </tr>
+    </thead>
+    <tbody id="myTable">
+      {% for i in a %}
+      <tr>
+        <td>{{ i.country }}</td>
+        <td>{{ i.cases }}</td>
+        <td>{{ i.active }}</td>
+        <td>{{ i.recovered }}</td>
+        <td>{{ i.critical }}</td>
+        <td>{{ i.deaths }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+<script>
+  $(document).ready(function(){
+    $("#myInput").on("keyup", function() {
+      var value = $(this).val().toLowerCase();
+      $("#myTable tr").filter(function() {
+        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+      });
+    });
+  });
+</script>
+{% endblock %}
