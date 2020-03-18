@@ -11,23 +11,40 @@
       <tr>
         <th>Country</th>
         <th>Cases</th>
+        <th>New Cases</th>
         <th>Active Cases</th>
         <th>Recovered</th>
         <th>Critical Cases</th>
         <th>Deaths</th>
+        <th>New Deaths</th>
       </tr>
     </thead>
+    <div id="content-desktop">
     <tbody id="myTable">
       {% for i in a %}
       <tr>
         <td>{{ i.country }}</td>
         <td>{{ i.cases }}</td>
+        <td>{{ i.todayCases }}</td>
         <td>{{ i.active }}</td>
         <td>{{ i.recovered }}</td>
         <td>{{ i.critical }}</td>
         <td>{{ i.deaths }}</td>
+        <td>{{ i.todayDeaths }}</td>
       </tr>
       {% endfor %}
+    </div>
+    <div id="content-mobile">
+    <tbody id="myTable">
+      {% for i in a %}
+      <tr>
+        <td>{{ i.country }}</td>
+        <td>{{ i.cases }}</td>
+        <td>{{ i.recovered }}</td>
+        <td>{{ i.deaths }}</td>
+      </tr>
+      {% endfor %}
+    </div>
     </tbody>
   </table>
 </div>
@@ -41,4 +58,15 @@
     });
   });
 </script>
+<style>
+  #content-desktop {display: block;}
+  #content-mobile {display: none;}
+
+  @media screen and (max-width: 768px) {
+
+    #content-desktop {display: none;}
+    #content-mobile {display: block;}
+
+  }
+</style>
 {% endblock %}
