@@ -6,27 +6,7 @@
 <h1 style="padding-top: 70px" class="container align-center">Countries</h1>
 <div class="container jumbotron" style="padding-top: 30px">
   <input class="form-control" id="myInput" type="text" placeholder="Search">
-  <table class="table table-borderless d-none d-lg-block">
-    <thead>
-      <tr>
-        <th>Country</th>
-        <th>Cases</th>
-        <th>Recovered</th>
-        <th>Deaths</th>
-      </tr>
-    </thead>
-    <tbody id="myTable">
-      {% for i in a %}
-      <tr>
-        <td><a href="/countries/{{i.country}}" class="btn btn-link">{{ i.country }}</a></td>
-        <td>{{ i.cases }}</td>
-        <td>{{ i.recovered }}</td>
-        <td>{{ i.deaths }}</td>
-      </tr>
-      {% endfor %}
-    </tbody>
-  </table>
-  <table class="table table-borderless d-lg-none">
+  <table class="table table-borderless">
     <thead>
       <tr>
         <th>Country</th>
