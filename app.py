@@ -1,5 +1,5 @@
 import requests
-from flask import Flask, render_template
+from flask import Flask, render_template, redirect
 
 app = Flask(__name__)
 
@@ -45,6 +45,18 @@ def world():
 @app.route('/countries')
 def country():
     return render_template('countries.html', a=a)
+
+
+@app.route('/countries/<string:name_of_country>')
+def country_details(name_of_country):
+    b = 0
+    for i in countries.json():
+        if (i['country'] == name_of_country):
+             b = i
+    # if b == 0:
+    #     return redirect('/countries')
+    # else:
+    return render_template('country.html', b=b)
 
 
 if __name__ == '__main__':

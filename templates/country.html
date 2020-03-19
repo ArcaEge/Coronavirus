@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+{% block head %}
+<title>Coronavirus Counter - {{ b.country }}</title>
+{% endblock %}
+{% block body %}
+<div class="container-fluid"  style="padding-top: 70px">
+  <a href="/countries" class="btn btn-light btn-lg">
+  <span class="glyphicon glyphicon-chevron-left"></span> Back
+  </a>
+</div>
+<h1 class="container align-center">Cases in {{ b.country }}</h1>
+<div class="container jumbotron" style="padding-top: 30px">
+  <table class="table table-borderless d-lg-none">
+    <thead>
+      <tr>
+        <th>Cases</th>
+        <th>Recovered</th>
+        <th>Deaths</th>
+        <th>Critical Cases</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{{ b.cases }}</td>
+        <td>{{ b.recovered }}</td>
+        <td>{{ b.deaths }}</td>
+        <td>{{ b.critical }}</td>
+      </tr>
+    </tbody>
+  </table>
+  <br>
+  <table class="table table-borderless d-lg-none">
+    <thead>
+      <tr>
+        <th>Active Cases</th>
+        <th>New Cases</th>
+        <th>New Deaths</th>
+        <th>Cases per Million</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{{ b.active }}</td>
+        <td>{{ b.todayCases }}</td>
+        <td>{{ b.todayDeaths }}</td>
+        <td>{{ b.casesPerOneMillion }}</td>
+      </tr>
+    </tbody>
+  </table>
+  <br>
+  <table class="table table-borderless d-none d-lg-block">
+    <thead>
+      <tr>
+        <th>Country</th>
+        <th>Cases</th>
+        <th>New Cases</th>
+        <th>Active Cases</th>
+        <th>Recovered</th>
+        <th>Critical Cases</th>
+        <th>Deaths</th>
+        <th>New Deaths</th>
+        <th>Cases per Million</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{{ b.country }}</td>
+        <td>{{ b.cases }}</td>
+        <td>{{ b.todayCases }}</td>
+        <td>{{ b.active }}</td>
+        <td>{{ b.recovered }}</td>
+        <td>{{ b.critical }}</td>
+        <td>{{ b.deaths }}</td>
+        <td>{{ b.todayDeaths }}</td>
+        <td>{{ b.casesPerOneMillion }}</td>
+      </tr>
+      </a>
+    </tbody>
+  </table>
+</div>
+{% endblock %}
