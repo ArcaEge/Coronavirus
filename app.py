@@ -24,12 +24,17 @@ def post_data():
 
 @app.route('/')
 def home():
-    return render_template('index.html', cases=cases_all, deaths=deaths_all, recovered=recovered_all)
-
+    cases_formatted = '{:,d}'.format(cases_all)
+    deaths_formatted = '{:,d}'.format(deaths_all)
+    recovered_formatted = '{:,d}'.format(recovered_all)
+    return render_template('index.html', cases=cases_formatted, deaths=deaths_formatted, recovered=recovered_formatted)
 
 @app.route('/worldwide')
 def world():
-    return render_template('worldwide.html', cases=cases_all, deaths=deaths_all, recovered=recovered_all)
+    cases_formatted = '{:,d}'.format(cases_all)
+    deaths_formatted = '{:,d}'.format(deaths_all)
+    recovered_formatted = '{:,d}'.format(recovered_all)
+    return render_template('worldwide.html', cases=cases_formatted, deaths=deaths_formatted, recovered=recovered_formatted)
 
 
 @app.route('/countries')
@@ -42,11 +47,11 @@ def country_details(name_of_country):
     b = 0
     for i in countries.json():
         if (i['country'] == name_of_country):
-             b = i
-    # if b == 0:
-    #     return redirect('/countries')
-    # else:
-    return render_template('country.html', b=b)
+            b = i
+    if b == 0:
+        return redirect('/countries')
+    else:
+        return render_template('country.html', b=b)
 
 
 scheduler = BackgroundScheduler()
