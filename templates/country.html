@@ -16,7 +16,6 @@
         <th>Cases</th>
         <th>Recovered</th>
         <th>Deaths</th>
-        <th>Critical Cases</th>
       </tr>
     </thead>
     <tbody>
@@ -24,7 +23,6 @@
         <td>{{ b.cases }}</td>
         <td>{{ b.recovered }}</td>
         <td>{{ b.deaths }}</td>
-        <td>{{ b.critical }}</td>
       </tr>
     </tbody>
   </table>
@@ -32,18 +30,33 @@
   <table class="table table-borderless d-lg-none">
     <thead>
       <tr>
+        <th>Critical Cases</th>
         <th>Active Cases</th>
         <th>New Cases</th>
-        <th>New Deaths</th>
-        <th>Cases per Million</th>
       </tr>
     </thead>
     <tbody>
       <tr>
+        <td>{{ b.critical }}</td>
         <td>{{ b.active }}</td>
         <td>{{ b.todayCases }}</td>
+      </tr>
+    </tbody>
+  </table>
+  <br>
+  <table class="table table-borderless d-lg-none">
+    <thead>
+      <tr>
+        <th>New Deaths</th>
+        <th>Cases per Million</th>
+        <th>Deaths per Million</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
         <td>{{ b.todayDeaths }}</td>
         <td>{{ b.casesPerOneMillion }}</td>
+        <td>{{ b.deathsPerOneMillion }}</td>
       </tr>
     </tbody>
   </table>
@@ -59,6 +72,7 @@
         <th>Deaths</th>
         <th>New Deaths</th>
         <th>Cases per Million</th>
+        <th>Deaths per Million</th>
       </tr>
     </thead>
     <tbody>
@@ -71,6 +85,7 @@
         <td>{{ b.deaths }}</td>
         <td>{{ b.todayDeaths }}</td>
         <td>{{ b.casesPerOneMillion }}</td>
+        <td>{{ b.deathsPerOneMillion }}</td>
       </tr>
       </a>
     </tbody>
