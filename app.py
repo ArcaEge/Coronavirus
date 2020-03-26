@@ -55,7 +55,7 @@ def country_details(name_of_country):
 
 
 scheduler = BackgroundScheduler()
-job = scheduler.add_job(post_data, 'interval', minutes=1440)
+job = scheduler.add_job(post_data, 'interval', days=1)
 scheduler.start()
 if __name__ == '__main__':
     app.run()
