@@ -1,6 +1,5 @@
 import requests
 from flask import Flask, render_template, redirect
-from apscheduler.schedulers.background import BackgroundScheduler
 
 app = Flask(__name__)
 
@@ -14,17 +13,10 @@ deaths_all = all.json()['deaths']
 recovered_all = all.json()['recovered']
 
 
-def post_data():
-    all = requests.get('https://coronavirus-19-api.herokuapp.com/all')
-    cases_all = all.json()['cases']
-    deaths_all = all.json()['deaths']
-    recovered_all = all.json()['recovered']
-    requests.post('https://api.thingspeak.com/update?api_key=Y9VNTK6O6MF0ZAEB&field1={}&field2={}&field3={}'.format(str(cases_all), str(recovered_all), str(deaths_all)))
-
-
 @app.route('/')
 def home():
     return render_template('map.html')
+
 
 @app.route('/worldwide')
 def world():
@@ -52,7 +44,4 @@ def country_details(name_of_country):
 
 
 if __name__ == '__main__':
-    scheduler = BackgroundScheduler()
-    job = scheduler.add_job(post_data, 'interval', days=1)
     app.run()
-    scheduler.start()
