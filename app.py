@@ -24,10 +24,7 @@ def post_data():
 
 @app.route('/')
 def home():
-    cases_formatted = '{:,d}'.format(cases_all)
-    deaths_formatted = '{:,d}'.format(deaths_all)
-    recovered_formatted = '{:,d}'.format(recovered_all)
-    return render_template('index.html', cases=cases_formatted, deaths=deaths_formatted, recovered=recovered_formatted)
+    return render_template('map.html')
 
 @app.route('/worldwide')
 def world():
@@ -40,11 +37,6 @@ def world():
 @app.route('/countries')
 def country():
     return render_template('countries.html', a=a)
-
-
-@app.route('/map')
-def map():
-    return render_template('map.html')
 
 
 @app.route('/countries/<string:name_of_country>')
