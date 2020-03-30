@@ -3,9 +3,17 @@
 <title>Coronavirus Counter - Countries</title>
 {% endblock %}
 {% block body %}
+<!-- Chart code -->
+<script src="">
+</script>
+<!-- HTML -->
 <h1 style="padding-top: 70px" class="container align-center">Countries</h1>
 <div class="container jumbotron" style="padding-top: 30px">
-  <input class="form-control" id="myInput" type="text" placeholder="Search">
+  <div class="input-group">
+  <div class="input-group-prepend">
+    <span class="input-group-text"><i class="material-icons">search</i></span>
+  </div>
+  <input class="form-control" id="myInput" type="text" placeholder="Search"></div>
   <table class="table table-borderless">
     <thead>
       <tr>
@@ -17,7 +25,7 @@
     </thead>
     <tbody id="myTable">
       {% for i in a %}
-      <tr>
+      <tr id="{{ i.country }}">
         <td><a href="/countries/{{i.country}}" class="btn btn-link">{{ i.country }}</a></td>
         <td>{{ '{:,}'.format(i.cases) }}</td>
         <td>{{ '{:,}'.format(i.recovered) }}</td>

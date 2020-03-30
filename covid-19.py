@@ -10,6 +10,7 @@ def post_data():
     requests.post('https://api.thingspeak.com/update?api_key=Y9VNTK6O6MF0ZAEB&field1={}&field2={}&field3={}'.format(str(cases_all), str(recovered_all), str(deaths_all)))
 
 
+post_data()
 scheduler = BackgroundScheduler()
 job = scheduler.add_job(post_data, 'interval', seconds=30)
 scheduler.start()

@@ -42,6 +42,11 @@ def country():
     return render_template('countries.html', a=a)
 
 
+@app.route('/map')
+def map():
+    return render_template('map.html')
+
+
 @app.route('/countries/<string:name_of_country>')
 def country_details(name_of_country):
     b = 0
@@ -54,8 +59,8 @@ def country_details(name_of_country):
         return render_template('country.html', b=b)
 
 
-scheduler = BackgroundScheduler()
-job = scheduler.add_job(post_data, 'interval', days=1)
-scheduler.start()
 if __name__ == '__main__':
+    scheduler = BackgroundScheduler()
+    job = scheduler.add_job(post_data, 'interval', days=1)
     app.run()
+    scheduler.start()
